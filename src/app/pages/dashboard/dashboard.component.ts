@@ -48,19 +48,19 @@ import { noFutureDateValidator } from '../../validators/date.validator';
       <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <!-- Stats Cards -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-          <!-- Total Employees Card -->
-          <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-4 text-white shadow-md hover:shadow-lg transition-all border border-blue-400/20">
+          <!-- Total Employees Card - Sky Blue -->
+          <div class="bg-gradient-to-br from-sky-500 to-sky-600 rounded-xl p-4 text-white shadow-md hover:shadow-lg transition-all border border-sky-400/20">
             <div class="flex items-center justify-between mb-2">
               <div class="p-2 bg-white/20 backdrop-blur-sm rounded-lg">
                 <i-lucide name="users" class="h-5 w-5"></i-lucide>
               </div>
             </div>
             <p class="text-2xl font-bold mb-0.5">{{ employees.length }}</p>
-            <p class="text-blue-100 text-xs font-medium">Total Employees</p>
+            <p class="text-sky-50 text-xs font-medium">Total Employees</p>
           </div>
 
-          <!-- Active Employees Card -->
-          <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-4 text-white shadow-md hover:shadow-lg transition-all border border-green-400/20">
+          <!-- Active Employees Card - Deep Blue -->
+          <div class="bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl p-4 text-white shadow-md hover:shadow-lg transition-all border border-blue-500/20">
             <div class="flex items-center justify-between mb-2">
               <div class="p-2 bg-white/20 backdrop-blur-sm rounded-lg">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -69,11 +69,11 @@ import { noFutureDateValidator } from '../../validators/date.validator';
               </div>
             </div>
             <p class="text-2xl font-bold mb-0.5">{{ activeEmployeesCount }}</p>
-            <p class="text-green-100 text-xs font-medium">Active Employees</p>
+            <p class="text-blue-100 text-xs font-medium">Active Employees</p>
           </div>
 
-          <!-- Departments Card -->
-          <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-4 text-white shadow-md hover:shadow-lg transition-all border border-purple-400/20">
+          <!-- Departments Card - Indigo -->
+          <div class="bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl p-4 text-white shadow-md hover:shadow-lg transition-all border border-indigo-400/20">
             <div class="flex items-center justify-between mb-2">
               <div class="p-2 bg-white/20 backdrop-blur-sm rounded-lg">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -82,11 +82,11 @@ import { noFutureDateValidator } from '../../validators/date.validator';
               </div>
             </div>
             <p class="text-2xl font-bold mb-0.5">4</p>
-            <p class="text-purple-100 text-xs font-medium">Departments</p>
+            <p class="text-indigo-100 text-xs font-medium">Departments</p>
           </div>
 
-          <!-- On Leave Card -->
-          <div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl p-4 text-white shadow-md hover:shadow-lg transition-all border border-orange-400/20">
+          <!-- On Leave Card - Navy Blue -->
+          <div class="bg-gradient-to-br from-blue-800 to-blue-900 rounded-xl p-4 text-white shadow-md hover:shadow-lg transition-all border border-blue-700/20">
             <div class="flex items-center justify-between mb-2">
               <div class="p-2 bg-white/20 backdrop-blur-sm rounded-lg">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -95,7 +95,7 @@ import { noFutureDateValidator } from '../../validators/date.validator';
               </div>
             </div>
             <p class="text-2xl font-bold mb-0.5">{{ onLeaveEmployeesCount }}</p>
-            <p class="text-orange-100 text-xs font-medium">On Leave</p>
+            <p class="text-blue-100 text-xs font-medium">On Leave</p>
           </div>
         </div>
 
@@ -170,7 +170,7 @@ import { noFutureDateValidator } from '../../validators/date.validator';
               <button
                 (click)="exportCSV()"
                 [disabled]="filteredEmployees.length === 0"
-                class="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm hover:shadow-md"
+                class="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm hover:shadow-md"
               >
                 <i-lucide name="download" class="h-4 w-4"></i-lucide>
                 <span>Export CSV</span>
