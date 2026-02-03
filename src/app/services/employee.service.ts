@@ -34,9 +34,16 @@ export class EmployeeService {
 
     addEmployee(employee: Omit<Employee, 'id'>): void {
         const employees = this.employeesSubject.value;
+
+        let nextId = 121;
+        if (employees.length > 0) {
+            const maxId = Math.max(...employees.map(e => parseInt(e.id) || 0));
+            nextId = maxId + 1;
+        }
+
         const newEmployee: Employee = {
             ...employee,
-            id: crypto.randomUUID()
+            id: nextId.toString()
         };
         this.saveEmployees([...employees, newEmployee]);
     }
@@ -61,6 +68,10 @@ export class EmployeeService {
             let comparison = 0;
             if (config.field === 'name') {
                 comparison = a.name.localeCompare(b.name);
+            } else if (config.field === 'position') {
+                comparison = a.position.localeCompare(b.position);
+            } else if (config.field === 'salary') {
+                comparison = a.salary - b.salary;
             } else if (config.field === 'dateOfJoining') {
                 comparison = new Date(a.dateOfJoining).getTime() - new Date(b.dateOfJoining).getTime();
             }
@@ -73,9 +84,15 @@ export class EmployeeService {
             if (config.department !== 'all' && emp.department !== config.department) {
                 return false;
             }
+            if (config.status !== 'all' && emp.status !== config.status) {
+                return false;
+            }
             if (config.searchQuery) {
                 const query = config.searchQuery.toLowerCase();
-                return emp.name.toLowerCase().includes(query) || emp.email.toLowerCase().includes(query);
+                return emp.name.toLowerCase().includes(query) ||
+                    emp.email.toLowerCase().includes(query) ||
+                    emp.position.toLowerCase().includes(query) ||
+                    emp.phone.includes(query);
             }
             return true;
         });
@@ -83,14 +100,23 @@ export class EmployeeService {
 
     exportToCSV(employees: Employee[]): void {
         if (employees.length === 0) return;
-        const headers = ['ID', 'Name', 'Email', 'Department', 'Date of Joining'];
+
+        const headers = ['ID', 'Name', 'Email', 'Phone', 'Position', 'Department', 'Salary', 'Address', 'Status', 'Date of Joining', 'Vacation Days', 'Sick Leave Days'];
         const rows = employees.map(emp => [
-            emp.id,
+            `"${emp.id}"`,
             `"${emp.name}"`,
-            emp.email,
-            emp.department,
-            emp.dateOfJoining
+            `"${emp.email}"`,
+            `"${emp.phone}"`,
+            `"${emp.position}"`,
+            `"${emp.department}"`,
+            `"${emp.salary}"`,
+            `"${emp.address}"`,
+            `"${emp.status}"`,
+            `"${emp.dateOfJoining}"`,
+            `"${emp.vacationDays}"`,
+            `"${emp.sickLeaveDays}"`
         ]);
+
         const csvContent = [headers.join(','), ...rows.map(row => row.join(','))].join('\n');
         const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
         const link = document.createElement('a');
