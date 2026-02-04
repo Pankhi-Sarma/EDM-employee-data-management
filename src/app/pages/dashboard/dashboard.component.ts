@@ -18,8 +18,8 @@ import { noFutureDateValidator } from '../../validators/date.validator';
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-3">
-              <div class="rounded-lg bg-primary p-2">
-                <i-lucide name="users" class="h-5 w-5 text-primary-foreground"></i-lucide>
+              <div class="rounded-lg overflow-hidden" style="width: 40px; height: 40px;">
+                <img src="/EDM.png" alt="EDM Logo" class="w-full h-full object-contain">
               </div>
               <div>
                 <h1 class="text-xl font-bold text-foreground">Employee Dashboard</h1>
@@ -182,6 +182,13 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
     this.employeeService.getEmployees$().subscribe(emps => {
       this.employees = emps;
       this.applyTransformation();
