@@ -254,19 +254,6 @@ Output in `dist/` directory, ready for deployment.
 - Tree-shaking for minimal bundle size
 - Optimized images with base64 encoding
 
-## 🚧 Future Enhancements
-
-- [ ] Backend API integration (Node.js/Express)
-- [ ] JWT authentication
-- [ ] Pagination for large datasets
-- [ ] Advanced analytics dashboard
-- [ ] Export to Excel/PDF
-- [ ] Email notifications
-- [ ] Multi-user support with roles
-- [ ] Audit logs
-- [ ] Bulk import from CSV
-- [ ] Employee attendance tracking
-
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
@@ -285,16 +272,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 **Pankhi Sarma**
 - GitHub: [@Pankhi-Sarma](https://github.com/Pankhi-Sarma)
-
-## 🙏 Acknowledgments
-
-- Angular Team for the powerful framework
-- Tailwind CSS for the utility-first CSS framework
-- Lucide for beautiful, consistent icons
-- The open-source community
-
----
-
+  
 **Built with ❤️ using Angular 19 and TypeScript**
 
 *Last Updated: February 2026*
